@@ -66,7 +66,7 @@ const EditSong = ({ id, prevSongData }: Props) => {
             transition={{ ease: "easeOut", duration: 0.2 }}
             exit={{ top: 5, opacity: 0 }}
           >
-            {!isDeleteLoading ? (
+            {isDeleteLoading ? (
               <DeletingBackground>{<BtnLoader />}</DeletingBackground>
             ) : null}
             <DropdownWrapper>
