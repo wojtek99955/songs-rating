@@ -7,9 +7,12 @@ import {
   EditIcon,
   Tools,
   ToolsDropdown,
+  DeletingBackground,
+  DropdownWrapper,
 } from "./EditSongStyle";
 import UpdateSongModal from "../UpdateSongModal/UpdateSongModal";
 import { Song } from "../../types/Song";
+import BtnLoader from "../../assets/BtnLoader";
 
 interface Props {
   id: string;
@@ -23,10 +26,10 @@ const EditSong = ({ id, prevSongData }: Props) => {
     e.stopPropagation();
   };
 
-  const [deleteSong, { isLoading }] = useDeleteSongMutation();
+  const [deleteSong, { isLoading: isDeleteLoading }] = useDeleteSongMutation();
 
-  const handleDeleteSong = () => {
-    deleteSong(id);
+  const handleDeleteSong = async () => {
+    await deleteSong(id);
     setShowTools(false);
   };
 
@@ -63,12 +66,17 @@ const EditSong = ({ id, prevSongData }: Props) => {
             transition={{ ease: "easeOut", duration: 0.2 }}
             exit={{ top: 5, opacity: 0 }}
           >
-            <div onClick={handleDeleteSong}>
-              <DeleteIcon /> delete
-            </div>
-            <div onClick={handleOpenEditSongForm}>
-              <EditIcon /> update
-            </div>
+            {!isDeleteLoading ? (
+              <DeletingBackground>{<BtnLoader />}</DeletingBackground>
+            ) : null}
+            <DropdownWrapper>
+              <div onClick={handleDeleteSong}>
+                <DeleteIcon /> delete
+              </div>
+              <div onClick={handleOpenEditSongForm}>
+                <EditIcon /> update
+              </div>
+            </DropdownWrapper>
           </ToolsDropdown>
         ) : null}
       </AnimatePresence>

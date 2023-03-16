@@ -29,12 +29,8 @@ export const ToolsDropdown = styled(motion.div)`
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   right: 0;
-  padding: 1rem;
   background-color: white;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 
   div {
     display: flex;
@@ -43,4 +39,26 @@ export const ToolsDropdown = styled(motion.div)`
     cursor: pointer;
     color: #65647c;
   }
+`;
+
+export const DropdownWrapper = styled.span`
+  min-width: 5.5rem;
+  min-height: 5.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+`;
+
+export const DeletingBackground = styled.div`
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  z-index: 10;
 `;
