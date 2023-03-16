@@ -8,6 +8,7 @@ export const Container = styled.section`
   padding-bottom: 1rem;
   h3 {
     margin-bottom: 2rem;
+    color: #2e3840;
   }
 `;
 
@@ -38,6 +39,7 @@ export const DetailsWrapper = styled.div`
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
     display: block;
+    color: #2e3840;
   }
   div {
     color: #65647c;

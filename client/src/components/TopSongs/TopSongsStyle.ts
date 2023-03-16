@@ -9,6 +9,7 @@ export const Section = styled.div`
   h2 {
     margin-bottom: 3rem;
     text-align: center;
+    color: #2e3840;
   }
 `;
 
