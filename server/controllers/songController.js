@@ -44,7 +44,7 @@ const deleteSong = async (req, res) => {
 };
 
 const getSongs = asyncHandler(async(req,res)=>{
-    const songs = await Song.find()
+    const songs = await Song.find().sort({ createdAt: -1 })
 
     res.json(songs);
 
